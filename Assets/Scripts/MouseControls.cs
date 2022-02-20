@@ -21,7 +21,7 @@ public class MouseControls : MonoBehaviour
             }
 
             if (hit.transform.CompareTag(screen)){
-                ScreenClick(transform.GetComponent<InteractableScreen>());
+                ScreenClick(hit.transform.GetComponent<InteractableScreen>());
             }
         }
     }
@@ -33,7 +33,7 @@ public class MouseControls : MonoBehaviour
             }
 
             if (hit.transform.CompareTag(screen)){
-                ScreenDrag(transform.GetComponent<InteractableScreen>());
+                ScreenDrag(hit.transform.GetComponent<InteractableScreen>());
             }
         }
     }
