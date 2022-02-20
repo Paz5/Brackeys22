@@ -1,18 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using HighlightPlus;
+using System;
 
-public class PartType : MonoBehaviour
+[Serializable]
+public class PartType
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public HighlightEffect highlightEffect;
+    public bool needRepair;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
