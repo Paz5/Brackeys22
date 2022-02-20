@@ -45,7 +45,7 @@ public class MouseControls : MonoBehaviour
 
     //dragging
     private bool dragging = false;
-    private Interactable cachedDragInteractable;
+    private Interactable cachedDragInteractable = null;
     
     private void StartDrag(){
         dragging = false;
@@ -59,8 +59,10 @@ public class MouseControls : MonoBehaviour
 
             if (hit.transform.CompareTag(screen)){
                 cachedDragInteractable = GetScreenDraggable(hit.transform.GetComponent<InteractableScreen>());
-                cachedDragInteractable.StartDrag();
-                dragging = true;
+                if (cachedDragInteractable != null){
+                    cachedDragInteractable.StartDrag();
+                    dragging = true;                    
+                }
             }
         }
     }
