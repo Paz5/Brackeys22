@@ -6,7 +6,7 @@ public class MinigameViewportPosition : MonoBehaviour{
     [SerializeField] private Vector2Variable viewportPos;
     [SerializeField] private LayerMask screenLayer;
 
-    void Update(){
+    private void Update(){
         if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition),out RaycastHit hit,99f,screenLayer)){
             viewportPos.Value = WorldToViewportPos(hit.point);
         }
