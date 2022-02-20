@@ -31,12 +31,12 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Bird type 1
+  - Bird type 2
+  - Bird type 3
+  - Cage type 1
+  - Cage type 2
+  - Cage type 3
   - 
   - 
   m_SortingLayers:
