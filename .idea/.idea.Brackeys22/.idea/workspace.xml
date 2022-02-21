@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe9bc891-d950-44b4-bbf3-1c20d98baaa2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Brackeys22/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Brackeys22/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Cinemachine/CinemachineExamples.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Cinemachine/Timeline/LegacyTimelineAPI.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Feel/NiceVibrations/NiceVibrationsAHAPConverters.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Feel/NiceVibrations/OlderVersions/v1.7/NiceVibrations-v-1-7.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Feel/NiceVibrations/OlderVersions/v2.0.1/NiceVibrations-v-2-0-1.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlusBundle/Builtin/HighlightPlus_Builtin_Pipeline.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HighlightPlusBundle/URP/HighlightPlus_URP_Pipeline.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CageMinigameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CageMinigameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DraggableBirds.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DraggableBird.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DraggableBirds.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DraggableBird.cs.meta" afterDir="false" />
-    </list>
+    <list default="true" id="fe9bc891-d950-44b4-bbf3-1c20d98baaa2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,7 +63,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1645431974431</updated>
-      <workItem from="1645432052672" duration="3781000" />
+      <workItem from="1645432052672" duration="4304000" />
     </task>
     <servers />
   </component>

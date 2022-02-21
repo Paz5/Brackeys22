@@ -19,8 +19,8 @@ public class CageMinigameManager : MonoBehaviour{
             bird => { bird.SetActive(false); },
             bird => { Destroy(bird); },
             false,
-            20,
-            20);
+            5,
+            5);
     }
     
     private GameObject CreateBird(){
