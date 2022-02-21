@@ -10,6 +10,8 @@ public class DraggableBird : MonoBehaviour{
     [HideInInspector] public ObjectPool<GameObject> pool;
     [SerializeField] private GameEvent succesEvent;
     [SerializeField] private GameEvent failEvent;
+    [SerializeField] private FloatVariable timeUntilFail;
+    private float t = 0;
     
     [HideInInspector] public InteractableScreen screen;
     [SerializeField] private SmoothFollow smoothFollow;
@@ -18,13 +20,25 @@ public class DraggableBird : MonoBehaviour{
     private bool alreadySpawned = false;
     private bool draggable = true;
 
+    
+
     private void OnEnable(){
         if (alreadySpawned){
             transform.position = manager.GetWaitPos();
             smoothFollow.SetPosition(manager.GetSpawnPos());
             correctPosition = false;
+            t = 0;
             draggable = true;
             dragStartPos = Vector3.zero;
+        }
+    }
+
+    private void Update(){
+        t += Time.deltaTime;
+        if (t > timeUntilFail.Value){
+            Fail();
+            t = -999;
+            StartCoroutine(Disappear());
         }
     }
 
@@ -50,20 +64,20 @@ public class DraggableBird : MonoBehaviour{
 
     public void EndDrag(){
         if (draggable){
-            if (correctPosition){
-                succesEvent.Raise();
-                transform.position = targetPos;
-            }
-            else{
-                Fail();
-                transform.position += Vector3.up * 10f;
-            }
+            if (correctPosition) Succed();
+            else Fail();
             StartCoroutine(Disappear());
             draggable = false;
         }
     }
 
+    private void Succed(){
+        succesEvent.Raise();
+        transform.position = targetPos;
+    }
+
     private void Fail(){
+        transform.position += Vector3.up * 10f;
         failEvent.Raise();
     }
 
