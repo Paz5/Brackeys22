@@ -3,16 +3,22 @@ using ScriptableObjectArchitecture;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
-public class DraggableBirds : MonoBehaviour
+public class DraggableBird : MonoBehaviour
 {
     [SerializeField] private GameEvent succesEvent;
     [SerializeField] private GameEvent failEvent;
     
-    [SerializeField] private InteractableScreen screen;
+    [SerializeField] public InteractableScreen screen;
     private Plane dragPlane;
     private Vector3 dragStartPos = Vector3.zero;
+    private Vector3 spawnPos;
+
+    private void OnEnable(){
+        //transform.position = spawnPos;
+    }
 
     private void Start(){
+        spawnPos = transform.position;
         dragPlane = new Plane(-screen.camera.transform.forward, transform.position);
     }
 
