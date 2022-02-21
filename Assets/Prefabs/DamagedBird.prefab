@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 7288681765122236003}
   - component: {fileID: -1428080715014805551}
   m_Layer: 0
-  m_Name: Bird
+  m_Name: DamagedBird
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

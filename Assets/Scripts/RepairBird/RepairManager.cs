@@ -9,6 +9,8 @@ public class RepairManager : MonoBehaviourSingleton<RepairManager>
 
     public void SetBird(DamagedBird db)
     {
+        if (db == birdUnderRepair) return;
+
         if(birdUnderRepair!=null) birdUnderRepair.DisableHighlights();
 
         birdUnderRepair = db;
