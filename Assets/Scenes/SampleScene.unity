@@ -477,9 +477,10 @@ MonoBehaviour:
   screen: {fileID: 1725173584}
   birdTypes:
   - {fileID: 8047015281184248777, guid: 712d8885f906876419b7775193216485, type: 3}
-  - {fileID: 1006194369786696066, guid: e65ed37afdbfbc04885aa1e9529cd562, type: 3}
-  - {fileID: 5906711742158747088, guid: a17a959ab45629c47bcb87755e7837c4, type: 3}
+  - {fileID: 8047015281184248777, guid: 9b6518c7bf23b374c804eeac17834d29, type: 3}
+  - {fileID: 8047015281184248777, guid: 23f6b4b7e6b8eae43ab47c8517af2eb5, type: 3}
   spawnPos: {fileID: 1473206754}
+  waitPos: {fileID: 1648957394}
   spawnDelay: {fileID: 11400000, guid: da42147537ae6bf469468025c5763f40, type: 2}
 --- !u!4 &319492424
 Transform:
@@ -498,6 +499,7 @@ Transform:
   - {fileID: 475318367}
   - {fileID: 1366001361}
   - {fileID: 1473206754}
+  - {fileID: 1648957394}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2148,7 +2150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1473206754}
   m_Layer: 0
-  m_Name: Spawn
+  m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2161,14 +2163,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1473206753}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.14, y: 2.85, z: 0}
+  m_LocalRotation: {x: -0, y: 0.70710677, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -8.14, y: 6.74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 319492424}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1524625560
 GameObject:
   m_ObjectHideFlags: 0
@@ -2306,6 +2308,37 @@ MonoBehaviour:
   moveDuration: 15
   birdsToRepair: []
   coolDownTime: 5
+--- !u!1 &1648957393
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1648957394}
+  m_Layer: 0
+  m_Name: WaitPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1648957394
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648957393}
+  m_LocalRotation: {x: -0, y: 0.7071065, z: -0, w: 0.7071072}
+  m_LocalPosition: {x: -8.14, y: 1.8699999, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 319492424}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1687258581
 GameObject:
   m_ObjectHideFlags: 0

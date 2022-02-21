@@ -9,23 +9,42 @@ public class CageMinigameManager : MonoBehaviour{
 
     [SerializeField] private InteractableScreen screen;
     [SerializeField] private List<GameObject> birdTypes;
-    private ObjectPool<GameObject> birdPool;
+    private List<ObjectPool<GameObject>> birdPools = new List<ObjectPool<GameObject>>();
     [SerializeField] private Transform spawnPos;
+    [SerializeField] private Transform waitPos;
 
     void Start(){
-        birdPool = new ObjectPool<GameObject>(
-            () => CreateBird(),
+        birdPools.Add(new ObjectPool<GameObject>(
+            () => CreateBird(0),
             bird => { bird.SetActive(true); },
             bird => { bird.SetActive(false); },
             bird => { Destroy(bird); },
-            false,
-            5,
-            5);
+            true,
+            6,
+            6));
+        birdPools.Add(new ObjectPool<GameObject>(
+            () => CreateBird(1),
+            bird => { bird.SetActive(true); },
+            bird => { bird.SetActive(false); },
+            bird => { Destroy(bird); },
+            true,
+            6,
+            6));
+        birdPools.Add(new ObjectPool<GameObject>(
+            () => CreateBird(2),
+            bird => { bird.SetActive(true); },
+            bird => { bird.SetActive(false); },
+            bird => { Destroy(bird); },
+            true,
+            6,
+            6));
     }
     
-    private GameObject CreateBird(){
-        var bird = Instantiate(birdTypes[Random.Range(0, birdTypes.Count)],spawnPos.position,quaternion.identity).GetComponent<DraggableBird>();
+    private GameObject CreateBird(int type){
+        var bird = Instantiate(birdTypes[type],GetWaitPos(),quaternion.identity).GetComponent<DraggableBird>();
         bird.screen = screen;
+        bird.manager = this;
+        bird.pool = birdPools[type];
         return bird.gameObject;
     }
 
@@ -35,11 +54,17 @@ public class CageMinigameManager : MonoBehaviour{
     private void Update(){
         t += Time.deltaTime;
         if (t > spawnDelay.Value){
-            birdPool.Get();
+            int type = Random.Range(0, birdTypes.Count);
+            birdPools[type].Get();
             t = 0;
         }
-            
     }
-    
 
+    public Vector3 GetSpawnPos(){
+        return spawnPos.position;
+    }
+
+    public Vector3 GetWaitPos(){
+        return waitPos.position  + waitPos.right * Random.Range(-3.5f, 3.5f);
+    }
 }
