@@ -8,6 +8,7 @@ public class MouseControls : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private string interactable = "Interactable";
     [SerializeField] private string screen = "Screen";
+    [SerializeField] private LayerMask layermask;
 
     private void Update(){
         if (Input.GetMouseButtonDown(0)){
@@ -24,7 +25,7 @@ public class MouseControls : MonoBehaviour
 
     //clicking 
     private void Click(){
-        if(Physics.Raycast(mainCamera.ScreenPointToRay(Input.mousePosition),out RaycastHit hit,99f)){
+        if(Physics.Raycast(mainCamera.ScreenPointToRay(Input.mousePosition),out RaycastHit hit,99f,layermask)){
             if (hit.transform.CompareTag(interactable)){
                 hit.transform.GetComponent<Interactable>().Click();
             }
@@ -36,7 +37,7 @@ public class MouseControls : MonoBehaviour
     }
 
     private void ScreenClick(InteractableScreen screen){
-        if (Physics.Raycast(screen.camera.ViewportPointToRay(screen.pointerPos.Value), out RaycastHit hit, 99f)){
+        if (Physics.Raycast(screen.camera.ViewportPointToRay(screen.pointerPos.Value), out RaycastHit hit, 99f,layermask)){
             if (hit.transform.CompareTag(interactable)){
                 hit.transform.GetComponent<Interactable>().Click();
             }
@@ -50,7 +51,7 @@ public class MouseControls : MonoBehaviour
     private void StartDrag(){
         dragging = false;
         
-        if(Physics.Raycast(mainCamera.ScreenPointToRay(Input.mousePosition),out RaycastHit hit,99f)){
+        if(Physics.Raycast(mainCamera.ScreenPointToRay(Input.mousePosition),out RaycastHit hit,99f,layermask)){
             if (hit.transform.CompareTag(interactable)){
                 cachedDragInteractable = hit.transform.GetComponent<Interactable>();
                 cachedDragInteractable.StartDrag();
@@ -77,7 +78,7 @@ public class MouseControls : MonoBehaviour
     }
 
     private Interactable GetScreenDraggable(InteractableScreen screen){
-        if (Physics.Raycast(screen.camera.ViewportPointToRay(screen.pointerPos.Value), out RaycastHit hit, 99f)){
+        if (Physics.Raycast(screen.camera.ViewportPointToRay(screen.pointerPos.Value), out RaycastHit hit, 99f,layermask)){
             if (hit.transform.CompareTag(interactable)){
                 return hit.transform.GetComponent<Interactable>();
             }
