@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000000029802322}
+  m_AnchoredPosition: {x: 0, y: 0.000000059604645}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1754978502
@@ -383,10 +383,10 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.468, y: -0.054}
-  m_SizeDelta: {x: -1.2693, y: -0.8561}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0.15, y: 0.15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8186790243413772673
 CanvasRenderer:
@@ -518,7 +518,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62034fefb60bc0344915d6f1fca40c9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missionObject: {fileID: 11400000, guid: deb09321f4f3d9948bab31ee5977b359, type: 2}
   leftButton: {fileID: 8186790243587179687}
   rightButton: {fileID: 8186790242007608684}
   missionIcon: {fileID: 8186790243413772798}

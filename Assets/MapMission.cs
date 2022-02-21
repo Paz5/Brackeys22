@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class MapMission : MonoBehaviour
 {
-    [SerializeField] private Mission missionObject;
     [SerializeField] private Button leftButton;
     [SerializeField] private Button rightButton;
 
@@ -14,22 +13,24 @@ public class MapMission : MonoBehaviour
 
     [SerializeField] private GameEvent succeedEvent;
     [SerializeField] private GameEvent failEvent;
-    
-    private void Start(){
+    private bool leftIsSucced;
+
+    public void SetParams(Mission missionObject){
         leftButton.image.sprite = missionObject.leftButtonIcon;
         rightButton.image.sprite = missionObject.rightButtonIcon;
 
         missionIcon.sprite = missionObject.missionIcon;
         missionTitle.text = missionObject.MissionTitle;
+        leftIsSucced = missionObject.leftIsSucced;
     }
 
     public void ButtonPressLeft(){
-        if(missionObject.leftIsSucced) Succeed();
+        if(leftIsSucced) Succeed();
         else Fail();
     }
 
     public void ButtonPressRight(){
-        if(!missionObject.leftIsSucced) Succeed();
+        if(!leftIsSucced) Succeed();
         else Fail();
     }
 
