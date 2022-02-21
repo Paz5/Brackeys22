@@ -39,6 +39,7 @@ public class DraggableBird : MonoBehaviour{
             Fail();
             t = -999;
             StartCoroutine(Disappear());
+            draggable = false;
         }
     }
 
