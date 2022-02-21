@@ -11,6 +11,8 @@ public class ScoreSystem : MonoBehaviour
     public Image susCube;
     public Text scoreText;
     public GameEvent failEvent;
+    public GameObject endGamePanel;
+    public Text scoreTextEnd;
     private float score;
     private float suspicionMeter;
     private float suspicionCoolDown;
@@ -39,6 +41,7 @@ public class ScoreSystem : MonoBehaviour
     {
         score = 0;
         suspicionMeter = 0;
+        ChangeSusMeter(0);
         scoreText.text = "0";
     }
 
@@ -47,7 +50,7 @@ public class ScoreSystem : MonoBehaviour
         ChangeSusMeter(suspicionMeter += suspicion);
         suspicionCoolDown = suspicionCoolDownTime;
 
-        if (maxSuspicionMeter < suspicionMeter)
+        if (maxSuspicionMeter <= suspicionMeter)
         {
             OnEndDo();
         }
@@ -61,7 +64,8 @@ public class ScoreSystem : MonoBehaviour
 
     private void OnEndDo()
     {
-        OnRestartDo();
+        endGamePanel.SetActive(true);
+        scoreTextEnd.text = score+"";
     }
 
     private void ChangeSusMeter(float value)

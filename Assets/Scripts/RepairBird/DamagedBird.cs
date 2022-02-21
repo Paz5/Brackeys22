@@ -15,6 +15,26 @@ public class DamagedBird : MonoBehaviour
 
     public GameEvent startRepairEvent;
 
+    public void Repair(PartTypeEnum partTypeEnum)
+    {
+        if (partTypeEnum == PartTypeEnum.BATTERY)
+        {
+            battery.needRepair = false;
+            battery.highlightEffect.outlineColor = unDamaged;
+        }
+        if (partTypeEnum == PartTypeEnum.CAMERA)
+        {
+            camera.needRepair = false;
+            camera.highlightEffect.outlineColor = unDamaged;
+        }
+        if (partTypeEnum == PartTypeEnum.WINGS)
+        {
+            wings.needRepair = false;
+            wings.highlightEffect.outlineColor = unDamaged;
+        }
+
+    }
+
     public bool IsDamaged()
     {
         foreach (PartType pt in parts)

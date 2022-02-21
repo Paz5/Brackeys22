@@ -9,5 +9,6 @@ public class PartType
 {
     public HighlightEffect highlightEffect;
     public bool needRepair;
-
 }
+
+public enum PartTypeEnum { WINGS, CAMERA, BATTERY };

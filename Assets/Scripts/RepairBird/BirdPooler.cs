@@ -12,16 +12,16 @@ public class BirdPooler : MonoBehaviour
     public Transform birdSpawnPosition;
     public Transform birdDespawnPosition;
     public float despawnDistance = 0.1f;
-    public float moveDuration=15f;
+    public float moveDuration = 15f;
     public List<DamagedBird> birdsToRepair = new List<DamagedBird>();
-    public float coolDownTime=5f;
+    public float coolDownTime = 5f;
     private float coolDownTimer;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -29,6 +29,15 @@ public class BirdPooler : MonoBehaviour
     {
         DespawnBirds();
         PoolBirds();
+    }
+
+    public void OnRestartDo()
+    {
+        for (int i = birdsToRepair.Count - 1; i >= 0; i--)
+        {
+            Destroy(birdsToRepair[i].gameObject);
+            birdsToRepair.Remove(birdsToRepair[i]);
+        }
     }
 
     private void PoolBirds()//rewrite into pooling for performance
@@ -46,7 +55,7 @@ public class BirdPooler : MonoBehaviour
 
     private void DespawnBirds()
     {
-        for(int i = birdsToRepair.Count-1; i >= 0; i--)
+        for (int i = birdsToRepair.Count - 1; i >= 0; i--)
         {
             if (Vector3.Distance(birdsToRepair[i].transform.position, birdDespawnPosition.position) < despawnDistance)
             {
