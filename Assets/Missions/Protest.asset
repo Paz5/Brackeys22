@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b2d7086d38adb442922fc30b2e38891, type: 3}
+  m_Name: Protest
+  m_EditorClassIdentifier: 
+  missionIcon: {fileID: 21300000, guid: e66b793b76725492bb22ae28a2ef1167, type: 3}
+  leftButtonIcon: {fileID: 21300000, guid: ece536107961640679d552ef7aa58728, type: 3}
+  rightButtonIcon: {fileID: 21300000, guid: 32efbf14424ee49c286a6ec5cd8c66ee, type: 3}
+  MissionTitle: Protest
+  leftIsSucced: 0
