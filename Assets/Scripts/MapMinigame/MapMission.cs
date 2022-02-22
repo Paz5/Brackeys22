@@ -15,6 +15,7 @@ public class MapMission : MonoBehaviour
     [SerializeField] private GameEvent succeedEvent;
     [SerializeField] private GameEvent failEvent;
     [SerializeField] private GameEvent resetEvent;
+    [SerializeField] private FloatVariable timeWindow;
     private bool leftIsSucced;
 
     private void Start(){
@@ -36,6 +37,12 @@ public class MapMission : MonoBehaviour
         missionIcon.sprite = missionObject.missionIcon;
         missionTitle.text = missionObject.MissionTitle;
         leftIsSucced = missionObject.leftIsSucced;
+    }
+
+    float t = 0;
+    private void FixedUpdate(){
+        if(t>timeWindow.Value)
+            Fail();
     }
 
     public void ButtonPressLeft(){

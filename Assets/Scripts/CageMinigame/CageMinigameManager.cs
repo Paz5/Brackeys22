@@ -9,6 +9,7 @@ using Random = UnityEngine.Random;
 public class CageMinigameManager : MonoBehaviour{
 
     [SerializeField] private GameEvent resetEvent;
+    [SerializeField] private FloatVariable spawnDelay;
     
     [SerializeField] private InteractableScreen screen;
     [SerializeField] private List<GameObject> birdTypes;
@@ -62,8 +63,7 @@ public class CageMinigameManager : MonoBehaviour{
         bird.pool = birdPools[type];
         return bird.gameObject;
     }
-
-    [SerializeField] private FloatVariable spawnDelay;
+    
     private float t = 0;
     
     private void Update(){

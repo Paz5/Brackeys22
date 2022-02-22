@@ -12,10 +12,11 @@ public class BirdPooler : MonoBehaviour
     public Transform birdSpawnPosition;
     public Transform birdDespawnPosition;
     public float despawnDistance = 0.1f;
-    public float moveDuration = 15f;
     public List<DamagedBird> birdsToRepair = new List<DamagedBird>();
-    public float coolDownTime = 5f;
     private float coolDownTimer;
+    
+    [SerializeField] private FloatVariable spawnDelay;
+    [SerializeField] private FloatVariable timeWindow;
 
 
     // Start is called before the first frame update
@@ -49,7 +50,7 @@ public class BirdPooler : MonoBehaviour
         else
         {
             SpawnBird();
-            coolDownTimer = coolDownTime;
+            coolDownTimer = spawnDelay.Value;
         }
     }
 
@@ -78,6 +79,6 @@ public class BirdPooler : MonoBehaviour
         DamagedBird db = Instantiate(birdPrefab, birdSpawnPosition.position, birdSpawnPosition.rotation).GetComponent<DamagedBird>();
         db.Initialize();
         birdsToRepair.Add(db);
-        db.transform.DOMove(birdDespawnPosition.position, moveDuration).SetEase(Ease.Linear);
+        db.transform.DOMove(birdDespawnPosition.position, timeWindow.Value).SetEase(Ease.Linear);
     }
 }

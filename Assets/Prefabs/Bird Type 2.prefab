@@ -277,7 +277,7 @@ MonoBehaviour:
   manager: {fileID: 0}
   succesEvent: {fileID: 11400000, guid: c014002b58281dd47a8f42451f3229b7, type: 2}
   failEvent: {fileID: 11400000, guid: fd85ecaeb6d862c4282e30fdbedc00a3, type: 2}
-  timeUntilFail: {fileID: 11400000, guid: f582d5460171e96479c3f9e7aae6122b, type: 2}
+  timeWindow: {fileID: 11400000, guid: f582d5460171e96479c3f9e7aae6122b, type: 2}
   screen: {fileID: 0}
   smoothFollow: {fileID: 2615532659023871430}
 --- !u!23 &-5923045165310608577

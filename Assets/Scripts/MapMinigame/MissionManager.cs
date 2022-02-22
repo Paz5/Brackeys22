@@ -12,7 +12,7 @@ public class MissionManager : MonoBehaviour{
     [SerializeField] private RectTransform canvas;
     [SerializeField] private GameEvent resetEvent;
 
-    [SerializeField] private FloatVariable missionSpawnDelay;
+    [SerializeField] private FloatVariable spawnDelay;
     private float t = 0;
 
     void Start(){
@@ -25,7 +25,7 @@ public class MissionManager : MonoBehaviour{
 
     void Update(){
         t += Time.deltaTime;
-        if (t > missionSpawnDelay.Value){
+        if (t > spawnDelay.Value){
             Spawn();
             t = 0;
         }

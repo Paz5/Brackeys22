@@ -525,6 +525,7 @@ MonoBehaviour:
   succeedEvent: {fileID: 11400000, guid: c014002b58281dd47a8f42451f3229b7, type: 2}
   failEvent: {fileID: 11400000, guid: fd85ecaeb6d862c4282e30fdbedc00a3, type: 2}
   resetEvent: {fileID: 11400000, guid: 41a63aa0672477a4fa1e11e18bdb292e, type: 2}
+  timeWindow: {fileID: 11400000, guid: d199e9aab46e558409f37f258a91be1c, type: 2}
 --- !u!1 &8186790243587179685
 GameObject:
   m_ObjectHideFlags: 0

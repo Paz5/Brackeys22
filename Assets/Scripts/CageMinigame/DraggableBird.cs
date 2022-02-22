@@ -14,7 +14,7 @@ public class DraggableBird : MonoBehaviour{
     [HideInInspector] public ObjectPool<GameObject> pool;
     [SerializeField] private GameEvent succesEvent;
     [SerializeField] private GameEvent failEvent;
-    [SerializeField] private FloatVariable timeUntilFail;
+    [SerializeField] private FloatVariable timeWindow;
     private float t = 0;
     
     [HideInInspector] public InteractableScreen screen;
@@ -46,7 +46,7 @@ public class DraggableBird : MonoBehaviour{
 
     private void Update(){
         t += Time.deltaTime;
-        if (t > timeUntilFail.Value){
+        if (t > timeWindow.Value){
             Fail();
             t = -999;
             StartCoroutine(Disappear());
