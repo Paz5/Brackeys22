@@ -8,12 +8,8 @@ using ScriptableObjectArchitecture;
 
 public class ScoreSystem : MonoBehaviour
 {
-    public MMProgressBar susBar;
-    public Image susCube;
-    public Text scoreText;
+    public MainUiReferences mainUiReferences;
     public GameEvent failEvent;
-    public GameObject endGamePanel;
-    public Text scoreTextEnd;
     private float score;
     private float suspicionMeter;
     private float suspicionCoolDown;
@@ -44,7 +40,7 @@ public class ScoreSystem : MonoBehaviour
         score = 0;
         suspicionMeter = 0;
         ChangeSusMeter(0);
-        scoreText.text = "0";
+        mainUiReferences.scoreText.text = "0";
     }
 
     private void OnFailedDo(float suspicion)
@@ -61,20 +57,20 @@ public class ScoreSystem : MonoBehaviour
     private void OnSuccessDo(float score)
     {
         this.score += score;
-        scoreText.text = "" + this.score;
+        mainUiReferences.scoreText.text = "" + this.score;
         scoreSound.PlayFeedbacks();
     }
 
     private void OnEndDo()
     {
-        endGamePanel.SetActive(true);
-        scoreTextEnd.text = score+"";
+        mainUiReferences.endGamePanel.SetActive(true);
+        mainUiReferences.endScoreText.text = score+"";
     }
 
     private void ChangeSusMeter(float value)
     {
         suspicionMeter = value;
-        susBar.UpdateBar(suspicionMeter, 0, maxSuspicionMeter);
+        mainUiReferences.susBar.UpdateBar(suspicionMeter, 0, maxSuspicionMeter);
     }
 
     private void SusBarHandling()
@@ -83,7 +79,7 @@ public class ScoreSystem : MonoBehaviour
         {
             suspicionCoolingDown = true;
             suspicionCoolDown -= Time.deltaTime;
-            susCube.fillAmount = suspicionCoolDown / suspicionCoolDownTime;
+            mainUiReferences.susCube.fillAmount = suspicionCoolDown / suspicionCoolDownTime;
         }
         else
         {

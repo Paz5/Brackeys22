@@ -49,12 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b28306247e7e544d881546d0f1df5d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  susBar: {fileID: 0}
-  susCube: {fileID: 0}
-  scoreText: {fileID: 0}
+  mainUiReferences: {fileID: 0}
   failEvent: {fileID: 11400000, guid: fd85ecaeb6d862c4282e30fdbedc00a3, type: 2}
-  endGamePanel: {fileID: 0}
-  scoreTextEnd: {fileID: 0}
   suspicionCoolDownTime: 13
   maxSuspicionMeter: 100
   scoreSound: {fileID: 6037606226790344954}

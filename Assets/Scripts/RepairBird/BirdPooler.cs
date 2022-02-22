@@ -6,6 +6,7 @@ using DG.Tweening;
 
 public class BirdPooler : MonoBehaviour
 {
+    public EnvironmentReferences environmentReferences;
     public GameEvent failed;
     public GameEvent success;
     public GameObject birdPrefab;
@@ -24,7 +25,7 @@ public class BirdPooler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        scrollTexture = environmentReferences.scrollTexture;
     }
 
     // Update is called once per frame
