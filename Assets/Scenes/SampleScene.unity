@@ -3631,6 +3631,24 @@ MonoBehaviour:
   cageTimeWindow: {fileID: 11400000, guid: f582d5460171e96479c3f9e7aae6122b, type: 2}
   repairTimeWindow: {fileID: 11400000, guid: 36622b35e7d866549951b5ef2c580ffa, type: 2}
   mapTimeWindow: {fileID: 11400000, guid: d199e9aab46e558409f37f258a91be1c, type: 2}
+  startSpawnDelayCage: 5
+  endSpawnDelayCage: 3
+  startTimeWindowCage: 20
+  endTimeWindowCage: 15
+  timeToMaxDifficultyCage: 60
+  timeToStartDifficultyIncreaseCage: 5
+  startSpawnDelayRepair: 6
+  endSpawnDelayRepair: 3
+  startTimeWindowRepair: 20
+  endTimeWindowRepair: 15
+  timeToMaxDifficultyRepair: 90
+  timeToStartDifficultyIncreaseRepair: 10
+  startSpawnDelayMap: 13
+  endSpawnDelayMap: 6
+  startTimeWindowMap: 25
+  endTimeWindowMap: 20
+  timeToMaxDifficultyMap: 75
+  timeToStartDifficultyIncreaseMap: 3
 --- !u!1 &1609205774
 GameObject:
   m_ObjectHideFlags: 0
