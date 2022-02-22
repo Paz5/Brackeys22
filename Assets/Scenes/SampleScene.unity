@@ -549,6 +549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65b7c73af27216943bf47776b1e3986e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetEvent: {fileID: 11400000, guid: 41a63aa0672477a4fa1e11e18bdb292e, type: 2}
   screen: {fileID: 1725173584}
   birdTypes:
   - {fileID: 8047015281184248777, guid: 712d8885f906876419b7775193216485, type: 3}

@@ -273,6 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ed9db8e5bb92c1418bb62f072f61fd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetEvent: {fileID: 11400000, guid: 41a63aa0672477a4fa1e11e18bdb292e, type: 2}
   manager: {fileID: 0}
   succesEvent: {fileID: 11400000, guid: c014002b58281dd47a8f42451f3229b7, type: 2}
   failEvent: {fileID: 11400000, guid: fd85ecaeb6d862c4282e30fdbedc00a3, type: 2}

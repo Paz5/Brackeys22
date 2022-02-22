@@ -2,10 +2,14 @@ using System;
 using System.Collections;
 using ScriptableObjectArchitecture;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.Pool;
 
 [RequireComponent(typeof(Collider))]
 public class DraggableBird : MonoBehaviour{
+    
+    
+    [SerializeField] private GameEvent resetEvent;
     [HideInInspector] public CageMinigameManager manager;
     [HideInInspector] public ObjectPool<GameObject> pool;
     [SerializeField] private GameEvent succesEvent;
@@ -20,17 +24,24 @@ public class DraggableBird : MonoBehaviour{
     private bool alreadySpawned = false;
     private bool draggable = true;
 
-    
+    private void ReleaseBird(){
+        if(gameObject.activeSelf)
+            pool.Release(gameObject);
+    }
 
     private void OnEnable(){
         if (alreadySpawned){
-            transform.position = manager.GetWaitPos();
-            smoothFollow.SetPosition(manager.GetSpawnPos());
-            correctPosition = false;
-            t = 0;
-            draggable = true;
-            dragStartPos = Vector3.zero;
+            ResetBirdState();
         }
+    }
+
+    private void ResetBirdState(){
+        transform.position = manager.GetWaitPos();
+        smoothFollow.SetPosition(manager.GetSpawnPos());
+        correctPosition = false;
+        t = 0;
+        draggable = true;
+        dragStartPos = Vector3.zero;
     }
 
     private void Update(){
@@ -44,8 +55,8 @@ public class DraggableBird : MonoBehaviour{
     }
 
     private void Start(){
-        transform.position = manager.GetWaitPos();
-        smoothFollow.SetPosition(manager.GetSpawnPos());
+        ResetBirdState();
+        resetEvent.AddListener(ReleaseBird);
         dragPlane = new Plane(-screen.camera.transform.forward, transform.position);
         alreadySpawned = true;
     }

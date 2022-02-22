@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using ScriptableObjectArchitecture;
 using Unity.Mathematics;
@@ -7,6 +8,8 @@ using Random = UnityEngine.Random;
 
 public class CageMinigameManager : MonoBehaviour{
 
+    [SerializeField] private GameEvent resetEvent;
+    
     [SerializeField] private InteractableScreen screen;
     [SerializeField] private List<GameObject> birdTypes;
     private List<ObjectPool<GameObject>> birdPools = new List<ObjectPool<GameObject>>();
@@ -14,6 +17,8 @@ public class CageMinigameManager : MonoBehaviour{
     [SerializeField] private Transform waitPos;
 
     void Start(){
+        resetEvent.AddListener(ResetMinigameState);
+        
         birdPools.Add(new ObjectPool<GameObject>(
             () => CreateBird(0),
             bird => { bird.SetActive(true); },
@@ -38,6 +43,16 @@ public class CageMinigameManager : MonoBehaviour{
             true,
             6,
             6));
+    }
+
+    private void OnDestroy(){
+        foreach (var pool in birdPools){
+            pool.Dispose();
+        }
+    }
+
+    private void ResetMinigameState(){
+        t = 0;
     }
     
     private GameObject CreateBird(int type){
