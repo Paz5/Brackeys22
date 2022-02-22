@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 8186790243413772799}
   - component: {fileID: 8186790243413772672}
   m_Layer: 0
-  m_Name: Mission
+  m_Name: MissionObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -524,6 +524,7 @@ MonoBehaviour:
   missionTitle: {fileID: 1754978501}
   succeedEvent: {fileID: 11400000, guid: c014002b58281dd47a8f42451f3229b7, type: 2}
   failEvent: {fileID: 11400000, guid: fd85ecaeb6d862c4282e30fdbedc00a3, type: 2}
+  resetEvent: {fileID: 11400000, guid: 41a63aa0672477a4fa1e11e18bdb292e, type: 2}
 --- !u!1 &8186790243587179685
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,9 +10,18 @@ public class MissionManager : MonoBehaviour{
     [SerializeField] private GameObject missionUIprefab;
     [SerializeField] private GameObject map;
     [SerializeField] private RectTransform canvas;
+    [SerializeField] private GameEvent resetEvent;
 
     [SerializeField] private FloatVariable missionSpawnDelay;
     private float t = 0;
+
+    void Start(){
+        resetEvent.AddListener(GameReset);
+    }
+
+    void GameReset(){
+        t = 0;
+    }
 
     void Update(){
         t += Time.deltaTime;

@@ -1,3 +1,4 @@
+using System;
 using ScriptableObjectArchitecture;
 using TMPro;
 using UnityEngine;
@@ -13,7 +14,20 @@ public class MapMission : MonoBehaviour
 
     [SerializeField] private GameEvent succeedEvent;
     [SerializeField] private GameEvent failEvent;
+    [SerializeField] private GameEvent resetEvent;
     private bool leftIsSucced;
+
+    private void Start(){
+        resetEvent.AddListener(GameReset);
+    }
+
+    private void OnDestroy(){
+        resetEvent.RemoveListener(GameReset);
+    }
+
+    private void GameReset(){
+        Destroy(gameObject);
+    }
 
     public void SetParams(Mission missionObject){
         leftButton.image.sprite = missionObject.leftButtonIcon;

@@ -4356,7 +4356,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e60688de5f913bd41b8fa8a4bff89a3f, type: 2}
   missionUIprefab: {fileID: 8186790243413772797, guid: 7188711c70ee7e748a9e35910f8f3818, type: 3}
   map: {fileID: 587419084}
-  canvas: {fileID: 1273054928}
+  canvas: {fileID: 1273054925}
+  resetEvent: {fileID: 11400000, guid: 41a63aa0672477a4fa1e11e18bdb292e, type: 2}
   missionSpawnDelay: {fileID: 11400000, guid: 53299ffb25d89ee4eb857026c7a6449d, type: 2}
 --- !u!1 &2021721370
 GameObject:
