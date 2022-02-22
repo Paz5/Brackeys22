@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using MoreMountains.Tools;
+using MoreMountains.Feedbacks;
 using ScriptableObjectArchitecture;
 
 public class ScoreSystem : MonoBehaviour
@@ -19,6 +20,7 @@ public class ScoreSystem : MonoBehaviour
     private bool suspicionCoolingDown;
     public float suspicionCoolDownTime = 1f;
     public float maxSuspicionMeter = 100;
+    public MMFeedbacks scoreSound;
 
     [ContextMenu("Fail")]
     public void Fail()
@@ -60,6 +62,7 @@ public class ScoreSystem : MonoBehaviour
     {
         this.score += score;
         scoreText.text = "" + this.score;
+        scoreSound.PlayFeedbacks();
     }
 
     private void OnEndDo()

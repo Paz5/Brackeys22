@@ -5,6 +5,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Pool;
 using Random = UnityEngine.Random;
+using MoreMountains.Feedbacks;
 
 public class CageMinigameManager : MonoBehaviour{
 
@@ -16,6 +17,7 @@ public class CageMinigameManager : MonoBehaviour{
     private List<ObjectPool<GameObject>> birdPools = new List<ObjectPool<GameObject>>();
     [SerializeField] private Transform spawnPos;
     [SerializeField] private Transform waitPos;
+    public MMFeedbacks feedbacks;
 
     void Start(){
         resetEvent.AddListener(ResetMinigameState);
@@ -61,6 +63,7 @@ public class CageMinigameManager : MonoBehaviour{
         bird.screen = screen;
         bird.manager = this;
         bird.pool = birdPools[type];
+        feedbacks.PlayFeedbacks();
         return bird.gameObject;
     }
     

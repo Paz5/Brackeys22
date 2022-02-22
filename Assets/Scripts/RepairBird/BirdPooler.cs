@@ -14,6 +14,8 @@ public class BirdPooler : MonoBehaviour
     public float despawnDistance = 0.1f;
     public List<DamagedBird> birdsToRepair = new List<DamagedBird>();
     private float coolDownTimer;
+    public ScrollTexture scrollTexture;
+    public float offsetForTextureScroll;
     
     [SerializeField] private FloatVariable spawnDelay;
     [SerializeField] private FloatVariable timeWindow;
@@ -30,6 +32,7 @@ public class BirdPooler : MonoBehaviour
     {
         DespawnBirds();
         PoolBirds();
+        scrollTexture.scroll.y = scrollTexture.scroll.y + (Time.deltaTime * (1/timeWindow.Value) * offsetForTextureScroll);
     }
 
     public void OnRestartDo()

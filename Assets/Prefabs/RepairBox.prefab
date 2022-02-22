@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c2ce51367856bd49b72678cc4263225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Active: 0
+  Active: 1
   Label: Sound
   Chance: 100
   Timing:
@@ -315,7 +315,7 @@ MonoBehaviour:
     Quantized: 0
     TargetBPM: 120
   DebugActive: 0
-  Sfx: {fileID: 8300000, guid: 6d520839b7deb4c459ba85fd74cf2c18, type: 3}
+  Sfx: {fileID: 8300000, guid: 2d12b3cfe7dd0ab4aba71aae68e11d0a, type: 3}
   RandomSfx: []
   TestButton: 0
   TestStopButton: 0
