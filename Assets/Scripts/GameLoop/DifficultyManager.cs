@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using ScriptableObjectArchitecture;
@@ -44,6 +45,16 @@ public class DifficultyManager : MonoBehaviour
     [SerializeField] private float timeToMaxDifficultyMap = 60f;
     [SerializeField] private float timeToStartDifficultyIncreaseMap = 5f;
     private float mapTimer = 0;
+
+    private void Start(){
+        resetEvent.AddListener(ResetState);
+    }
+
+    private void ResetState(){
+        cageTimer = 0;
+        repairTimer = 0;
+        mapTimer = 0;
+    }
     
     void FixedUpdate(){
         CageDifficultyIncrease();
@@ -53,19 +64,19 @@ public class DifficultyManager : MonoBehaviour
 
     private void CageDifficultyIncrease(){
         cageTimer += Time.deltaTime;
-        cageSpawnDelay.Value = Mathf.Lerp(startSpawnDelayCage, endSpawnDelayCage, cageTimer / timeToMaxDifficultyCage - timeToStartDifficultyIncreaseCage);
-        cageTimeWindow.Value = Mathf.Lerp(startTimeWindowCage, endTimeWindowCage, cageTimer / timeToMaxDifficultyCage - timeToMaxDifficultyCage);
+        cageSpawnDelay.Value = Mathf.Lerp(startSpawnDelayCage, endSpawnDelayCage, (cageTimer - timeToStartDifficultyIncreaseCage)/timeToMaxDifficultyCage);
+        cageTimeWindow.Value = Mathf.Lerp(startTimeWindowCage, endTimeWindowCage, (cageTimer - timeToStartDifficultyIncreaseCage)/timeToMaxDifficultyCage);
     }
 
     private void RepairDifficultyIncrease(){
         repairTimer += Time.deltaTime;
-        repairSpawnDelay.Value = Mathf.Lerp(startSpawnDelayRepair, endSpawnDelayRepair, repairTimer / timeToMaxDifficultyRepair - timeToStartDifficultyIncreaseRepair);
-        repairTimeWindow.Value = Mathf.Lerp(startTimeWindowRepair, endTimeWindowRepair, repairTimer / timeToMaxDifficultyRepair - timeToStartDifficultyIncreaseRepair);
+        repairSpawnDelay.Value = Mathf.Lerp(startSpawnDelayRepair, endSpawnDelayRepair, (repairTimer - timeToStartDifficultyIncreaseRepair)/timeToMaxDifficultyRepair);
+        repairTimeWindow.Value = Mathf.Lerp(startTimeWindowRepair, endTimeWindowRepair, (repairTimer - timeToStartDifficultyIncreaseRepair)/timeToMaxDifficultyRepair);
     }
     
     private void MapDifficultyIncrease(){
         mapTimer += Time.deltaTime;
-        repairSpawnDelay.Value = Mathf.Lerp(startSpawnDelayMap, endSpawnDelayMap, mapTimer / timeToMaxDifficultyMap - timeToStartDifficultyIncreaseMap);
-        repairTimeWindow.Value = Mathf.Lerp(startTimeWindowMap, endTimeWindowMap, mapTimer / timeToMaxDifficultyMap - timeToStartDifficultyIncreaseMap);
+        mapSpawnDelay.Value = Mathf.Lerp(startSpawnDelayMap, endSpawnDelayMap, (mapTimer - timeToStartDifficultyIncreaseMap)/timeToMaxDifficultyMap);
+        mapTimeWindow.Value = Mathf.Lerp(startTimeWindowMap, endTimeWindowMap, (mapTimer - timeToStartDifficultyIncreaseMap)/timeToMaxDifficultyMap);
     }
 }
