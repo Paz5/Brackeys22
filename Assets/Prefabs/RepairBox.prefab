@@ -191,6 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseIsOver: 0
+  freshPress: 1
   partHoldTime: 0.5
   partTypeEnum: 0
   feedbacks: {fileID: 8873881298533374720}

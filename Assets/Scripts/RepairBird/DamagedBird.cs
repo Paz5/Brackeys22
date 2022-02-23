@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ScriptableObjectArchitecture;
+using DG.Tweening;
 
 public class DamagedBird : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class DamagedBird : MonoBehaviour
         {
             camera.needRepair = false;
             camera.highlightEffect.outlineColor = unDamaged;
+            RepairAnimation();
         }
         if (partTypeEnum == PartTypeEnum.WINGS)
         {
@@ -78,7 +80,7 @@ public class DamagedBird : MonoBehaviour
             if(Random.Range(0,2)>0) pt.needRepair = false;
             else pt.needRepair = true;
 
-
+            pt.DamagedView(pt.needRepair);
             if (pt.needRepair)
             {
                 pt.highlightEffect.outlineColor = damaged;
@@ -88,5 +90,30 @@ public class DamagedBird : MonoBehaviour
                 pt.highlightEffect.outlineColor = unDamaged;
             }
         }
+    }
+
+    public GameObject headPrefab;
+    public Transform headParent;
+    public Transform headBox;
+    public Transform localPosStart;
+    public Transform localPosEnd;
+    public Vector3 headRotate;
+    public GameObject animatedObject;
+    public float firstMovementDuration;
+    public float secondMovementDuration;
+
+    
+    private void RepairAnimation()
+    {
+        headBox = RepairManager.Instance.headBox;
+        animatedObject = Instantiate(headPrefab, headBox.position, localPosStart.rotation);
+        animatedObject.transform.SetParent(headParent,false);
+        animatedObject.transform.DOLocalMove(localPosStart.localPosition,firstMovementDuration).OnComplete(LastPartOfAnim);
+    }
+
+    private void LastPartOfAnim()
+    {
+        animatedObject.transform.DOLocalMove(localPosEnd.localPosition, secondMovementDuration);
+        animatedObject.transform.DOLocalRotate(headRotate, secondMovementDuration,RotateMode.LocalAxisAdd);
     }
 }

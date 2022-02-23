@@ -7,6 +7,7 @@ using MoreMountains.Feedbacks;
 public class RepairBox : MonoBehaviour
 {
     public bool mouseIsOver;
+    public bool freshPress;
     public float partHoldTime;
     private float partHoldTimer;
     public PartTypeEnum partTypeEnum;
@@ -22,22 +23,27 @@ public class RepairBox : MonoBehaviour
 
                 if (Input.GetMouseButton(0))
                 {
-                    if (partHoldTimer > 0)
+                    if (freshPress)
                     {
-                        partHoldTimer -= Time.deltaTime;
-                        progressCircle.fillAmount = (partHoldTime - partHoldTimer) / partHoldTime;
+                        if (partHoldTimer > 0)
+                        {
+                            partHoldTimer -= Time.deltaTime;
+                            progressCircle.fillAmount = (partHoldTime - partHoldTimer) / partHoldTime;
+                        }
+                        else
+                        {
+                            RepairManager.Instance.RepairBird(partTypeEnum);
+                            freshPress = false;
+                            mouseIsOver = false;
+                            feedbacks.StopFeedbacks();
+                        }
                     }
-                    else
-                    {
-                        RepairManager.Instance.RepairBird(partTypeEnum);
 
-                        mouseIsOver = false;
-                        feedbacks.StopFeedbacks();
-                    }
                 }
                 else
                 {
                     StopRepairing();
+                    freshPress = true;
                 }
             }
             else

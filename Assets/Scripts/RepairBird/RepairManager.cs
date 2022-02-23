@@ -5,7 +5,7 @@ using UnityEngine;
 public class RepairManager : MonoBehaviourSingleton<RepairManager>
 {
     public DamagedBird birdUnderRepair;
-
+    public Transform headBox;
     public void SetBird(DamagedBird db)
     {
         if (db == birdUnderRepair) return;
