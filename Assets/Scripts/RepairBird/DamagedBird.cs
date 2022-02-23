@@ -108,6 +108,7 @@ public class DamagedBird : MonoBehaviour
         headBox = RepairManager.Instance.headBox;
         animatedObject = Instantiate(headPrefab, headBox.position, localPosStart.rotation);
         animatedObject.transform.SetParent(headParent,false);
+        animatedObject.transform.position = headBox.position;
         animatedObject.transform.DOLocalMove(localPosStart.localPosition,firstMovementDuration).OnComplete(LastPartOfAnim);
     }
 
