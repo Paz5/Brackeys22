@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cursor = UnityEngine.UIElements.Cursor;
 
 public class MouseControls : MonoBehaviour
 {
