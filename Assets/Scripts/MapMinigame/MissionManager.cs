@@ -32,8 +32,8 @@ public class MissionManager : MonoBehaviour{
     }
 
     void Spawn(){
-        Vector2 pos = new Vector2(Random.Range(-.4f,.4f),
-                                  Random.Range(-.4f,.4f));
+        Vector2 pos = new Vector2(Random.Range(-.3f,.3f),
+                                  Random.Range(-.25f,.3f));
         var obj = Instantiate(missionUIprefab).GetComponent<RectTransform>();
         obj.SetParent(canvas.transform,false);
         obj.anchoredPosition = pos;
