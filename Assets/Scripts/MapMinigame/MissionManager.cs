@@ -77,7 +77,7 @@ public class MissionManager : MonoBehaviour{
     private void MissionDone(){
         activeMission = null;
         display.Hide();
-        if(missionObject.gameObject!=null)
+        if(missionObject!=null)
             Destroy(missionObject.gameObject);
     }
 }
