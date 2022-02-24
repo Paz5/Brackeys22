@@ -36,6 +36,7 @@ public class DraggableBird : MonoBehaviour{
     }
 
     private void ResetBirdState(){
+        transform.localScale = Vector3.one;
         transform.position = manager.GetWaitPos();
         smoothFollow.SetPosition(manager.GetSpawnPos());
         correctPosition = false;
@@ -94,7 +95,13 @@ public class DraggableBird : MonoBehaviour{
     }
 
     IEnumerator Disappear(){
-        yield return new WaitForSeconds(1f);
+        float t = 1f;
+        while(t>0){
+            t -= Time.deltaTime;
+            transform.localScale = Vector3.one * t;
+            yield return null;
+        }
+
         pool.Release(gameObject);
     }
 
