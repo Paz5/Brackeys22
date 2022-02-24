@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b2d7086d38adb442922fc30b2e38891, type: 3}
-  m_Name: Protest
+  m_Name: Steal Fries
   m_EditorClassIdentifier: 
   missionIcon: {fileID: 21300000, guid: d330c1eb6049c4003be8420e8df09a10, type: 3}
   leftButtonIcon: {fileID: 21300000, guid: 95a3ccbe9f9764c5d801ed700c5746d9, type: 3}
   rightButtonIcon: {fileID: 21300000, guid: dd52f03331fab45bbbeafd3400de0285, type: 3}
-  MissionTitle: Silence Protest
+  MissionTitle: Steal Fries
   leftIsSucced: 1

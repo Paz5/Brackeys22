@@ -6,20 +6,33 @@ using UnityEngine.UI;
 
 public class MapMission : MonoBehaviour
 {
-    [SerializeField] private Button leftButton;
-    [SerializeField] private Button rightButton;
-
-    [SerializeField] private Image missionIcon;
-    [SerializeField] private TextMeshProUGUI missionTitle;
-
-    [SerializeField] private GameEvent succeedEvent;
-    [SerializeField] private GameEvent failEvent;
     [SerializeField] private GameEvent resetEvent;
     [SerializeField] private FloatVariable timeWindow;
-    private bool leftIsSucced;
+    private MissionManager manager;
+    private Mission mission;
+
+    public void SetParams(MissionManager manager, Mission mission){
+        this.manager = manager;
+        this.mission = mission;
+    }
 
     private void Start(){
         resetEvent.AddListener(GameReset);
+    }
+
+    private float t = 0;
+
+    public void ShowMission(){
+        manager.Show(mission);
+    }
+
+    private void FixedUpdate(){
+        t += Time.deltaTime;
+        if (t > timeWindow.Value){
+            manager.Fail();
+            Destroy(gameObject);
+            t = 0;
+        }
     }
 
     private void OnDestroy(){
@@ -27,41 +40,6 @@ public class MapMission : MonoBehaviour
     }
 
     private void GameReset(){
-        Destroy(gameObject);
-    }
-
-    public void SetParams(Mission missionObject){
-        leftButton.image.sprite = missionObject.leftButtonIcon;
-        rightButton.image.sprite = missionObject.rightButtonIcon;
-
-        missionIcon.sprite = missionObject.missionIcon;
-        missionTitle.text = missionObject.MissionTitle;
-        leftIsSucced = missionObject.leftIsSucced;
-    }
-
-    float t = 0;
-    private void FixedUpdate(){
-        if(t>timeWindow.Value)
-            Fail();
-    }
-
-    public void ButtonPressLeft(){
-        if(leftIsSucced) Succeed();
-        else Fail();
-    }
-
-    public void ButtonPressRight(){
-        if(!leftIsSucced) Succeed();
-        else Fail();
-    }
-
-    private void Succeed(){
-        succeedEvent.Raise();
-        Destroy(gameObject);
-    }
-
-    private void Fail(){
-        failEvent.Raise();
         Destroy(gameObject);
     }
 }

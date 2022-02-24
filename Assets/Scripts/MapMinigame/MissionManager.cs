@@ -1,17 +1,20 @@
-using System.Collections;
 using System.Collections.Generic;
 using ScriptableObjectArchitecture;
-using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class MissionManager : MonoBehaviour{
     [SerializeField] private List<Mission> missions;
     [SerializeField] private GameObject missionUIprefab;
-    [SerializeField] private GameObject map;
     [SerializeField] private RectTransform canvas;
+    [SerializeField] private MissionDisplay display;
+    [SerializeField] private Transform missionObjectContainer;
+    private MapMission missionObject;
+    private Mission activeMission;
+    
+    [SerializeField] private GameEvent failEvent;
+    [SerializeField] private GameEvent successEvent;
     [SerializeField] private GameEvent resetEvent;
-
     [SerializeField] private FloatVariable spawnDelay;
     private float t = 0;
 
@@ -35,8 +38,46 @@ public class MissionManager : MonoBehaviour{
         Vector2 pos = new Vector2(Random.Range(-.3f,.3f),
                                   Random.Range(-.25f,.3f));
         var obj = Instantiate(missionUIprefab).GetComponent<RectTransform>();
-        obj.SetParent(canvas.transform,false);
+        obj.SetParent(missionObjectContainer,false);
         obj.anchoredPosition = pos;
-        obj.GetComponent<MapMission>().SetParams(missions[0]);
+        Mission mission = missions[Random.Range(0, missions.Count)];
+        missionObject = obj.GetComponent<MapMission>();
+        missionObject.SetParams(this,mission);
+    }
+
+    public void Show(Mission mission){
+        activeMission = mission;
+        display.Show(mission);
+    }
+
+    public void LeftPress(){
+        if(activeMission.leftIsSucced)
+            Success();
+        else
+            Fail();
+    }
+
+    public void RightPress(){
+        if(!activeMission.leftIsSucced)
+            Success();
+        else
+            Fail();
+    }
+
+    public void Success(){
+        successEvent.Raise();
+        MissionDone();
+    }
+
+    public void Fail(){
+        failEvent.Raise();
+        MissionDone();
+    }
+
+    private void MissionDone(){
+        activeMission = null;
+        display.Hide();
+        if(missionObject.gameObject!=null)
+            Destroy(missionObject.gameObject);
     }
 }
