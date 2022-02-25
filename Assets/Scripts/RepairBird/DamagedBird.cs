@@ -21,18 +21,21 @@ public class DamagedBird : MonoBehaviour
         if (partTypeEnum == PartTypeEnum.BATTERY)
         {
             battery.needRepair = false;
-            battery.highlightEffect.outlineColor = unDamaged;
+            battery.repairedHighlightEffect.outlineColor = unDamaged;
+            battery.DamagedView(false);
         }
         if (partTypeEnum == PartTypeEnum.CAMERA)
         {
             camera.needRepair = false;
-            camera.highlightEffect.outlineColor = unDamaged;
+            camera.repairedHighlightEffect.outlineColor = unDamaged;
+            camera.DamagedView(false);
             RepairAnimation();
         }
         if (partTypeEnum == PartTypeEnum.WINGS)
         {
             wings.needRepair = false;
-            wings.highlightEffect.outlineColor = unDamaged;
+            wings.repairedHighlightEffect.outlineColor = unDamaged;
+            wings.DamagedView(false);
         }
 
     }
@@ -51,7 +54,9 @@ public class DamagedBird : MonoBehaviour
         startRepairEvent.Raise();
         foreach (PartType pt in parts)
         {
-            pt.highlightEffect.SetHighlighted(true);
+            pt.repairedHighlightEffect.SetHighlighted(true);
+            if(pt.needRepair) pt.damagedHighlightEffect.SetHighlighted(true);
+
         }
         RepairManager.Instance.SetBird(this);
     }
@@ -65,7 +70,7 @@ public class DamagedBird : MonoBehaviour
     {
         foreach (PartType pt in parts)
         {
-            pt.highlightEffect.SetHighlighted(false);
+            pt.repairedHighlightEffect.SetHighlighted(false);
         }
     }
 
@@ -83,11 +88,11 @@ public class DamagedBird : MonoBehaviour
             pt.DamagedView(pt.needRepair);
             if (pt.needRepair)
             {
-                pt.highlightEffect.outlineColor = damaged;
+                pt.repairedHighlightEffect.outlineColor = damaged;
             }
             else
             {
-                pt.highlightEffect.outlineColor = unDamaged;
+                pt.repairedHighlightEffect.outlineColor = unDamaged;
             }
         }
     }

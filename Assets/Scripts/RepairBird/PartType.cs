@@ -7,21 +7,23 @@ using System;
 [Serializable]
 public class PartType
 {
-    public HighlightEffect highlightEffect;
+    public HighlightEffect repairedHighlightEffect;
+    public HighlightEffect damagedHighlightEffect;
     public bool needRepair;
-    public GameObject toHide;
 
     public void DamagedView(bool x)
     {
-        if (toHide == null) return;
 
         if (x)
         {
-            toHide.SetActive(false);
+            repairedHighlightEffect.gameObject.SetActive(false);
+            damagedHighlightEffect.gameObject.SetActive(true);
         }
         else
         {
-
+            damagedHighlightEffect.highlighted = false;
+            damagedHighlightEffect.gameObject.SetActive(false);
+            repairedHighlightEffect.gameObject.SetActive(true);
         }
 
     }
