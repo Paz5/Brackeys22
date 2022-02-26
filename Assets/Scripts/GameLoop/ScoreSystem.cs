@@ -61,7 +61,7 @@ public class ScoreSystem : MonoBehaviour
     {
         this.score += score;
         gotPoint.Raise();
-        if (this.score == 10) got10Points.Raise();
+        if (this.score%10 == 0) got10Points.Raise();
         mainUiReferences.scoreText.text = "" + this.score;
         scoreSound.PlayFeedbacks();
     }
