@@ -3730,22 +3730,22 @@ MonoBehaviour:
   repairTimeWindow: {fileID: 11400000, guid: 36622b35e7d866549951b5ef2c580ffa, type: 2}
   mapTimeWindow: {fileID: 11400000, guid: d199e9aab46e558409f37f258a91be1c, type: 2}
   startSpawnDelayCage: 5
-  endSpawnDelayCage: 3
+  endSpawnDelayCage: 4
   startTimeWindowCage: 20
-  endTimeWindowCage: 12
-  timeToMaxDifficultyCage: 60
-  timeToStartDifficultyIncreaseCage: 3
+  endTimeWindowCage: 16
+  timeToMaxDifficultyCage: 300
+  timeToStartDifficultyIncreaseCage: 15
   startSpawnDelayRepair: 6
-  endSpawnDelayRepair: 3
+  endSpawnDelayRepair: 4
   startTimeWindowRepair: 20
-  endTimeWindowRepair: 14
-  timeToMaxDifficultyRepair: 90
-  timeToStartDifficultyIncreaseRepair: 2
+  endTimeWindowRepair: 16
+  timeToMaxDifficultyRepair: 420
+  timeToStartDifficultyIncreaseRepair: 30
   startSpawnDelayMap: 13
-  endSpawnDelayMap: 4
+  endSpawnDelayMap: 10
   startTimeWindowMap: 25
   endTimeWindowMap: 18
-  timeToMaxDifficultyMap: 75
+  timeToMaxDifficultyMap: 250
   timeToStartDifficultyIncreaseMap: 5
 --- !u!1 &1648957393
 GameObject:
@@ -4504,6 +4504,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 05b4a1547ee1a81458e751fff464b17f, type: 2}
   - {fileID: 11400000, guid: d2783392fffe5c441a39ff73871c816c, type: 2}
   - {fileID: 11400000, guid: d77f1c58f392d764a98fc3bbb097f3df, type: 2}
+  - {fileID: 11400000, guid: 969b44686e1f8ad408f2de2339cc279a, type: 2}
   missionUIprefab: {fileID: 8186790243413772797, guid: 7188711c70ee7e748a9e35910f8f3818, type: 3}
   canvas: {fileID: 1273054925}
   display: {fileID: 1948672495}
