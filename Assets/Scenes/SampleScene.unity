@@ -4081,7 +4081,8 @@ GameObject:
   - component: {fileID: 1687258586}
   - component: {fileID: 1687258587}
   - component: {fileID: 1687258588}
-  m_Layer: 0
+  - component: {fileID: 1687258589}
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -4174,7 +4175,7 @@ MonoBehaviour:
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 257
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
@@ -4232,6 +4233,23 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1687258589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687258581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: a16b62d2ba71cf14aa37bdc2b1a4a677, type: 2}
 --- !u!1 &1725173576
 GameObject:
   m_ObjectHideFlags: 0
@@ -5355,6 +5373,10 @@ PrefabInstance:
       propertyPath: Sfx
       value: 
       objectReference: {fileID: 8300000, guid: 1d63d3eac92350a46a7559e363a5330f, type: 3}
+    - target: {fileID: 5606752959687028729, guid: 37619f6c98180df4db8702f3729394ca, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -82.8999
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37619f6c98180df4db8702f3729394ca, type: 3}
 --- !u!114 &6868154562579126492 stripped
