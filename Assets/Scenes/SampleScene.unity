@@ -2495,6 +2495,10 @@ PrefabInstance:
       propertyPath: headBox
       value: 
       objectReference: {fileID: 1044679864}
+    - target: {fileID: 7913437216277821674, guid: 852455e8af7d6ff4ebda354c0bb193a1, type: 3}
+      propertyPath: batteryBox
+      value: 
+      objectReference: {fileID: 1489867812}
     - target: {fileID: 7913437216277821675, guid: 852455e8af7d6ff4ebda354c0bb193a1, type: 3}
       propertyPath: m_Name
       value: RepairManager
@@ -3017,6 +3021,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1487872339}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1489867812 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8959441894396211257, guid: 1ae7c6d0d99ecd24dbaf03274ca635d7, type: 3}
+  m_PrefabInstance: {fileID: 1157399315}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1500296783
 GameObject:
   m_ObjectHideFlags: 0
