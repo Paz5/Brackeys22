@@ -83,6 +83,6 @@ public class CageMinigameManager : MonoBehaviour{
     }
 
     public Vector3 GetWaitPos(){
-        return waitPos.position  + waitPos.right * Random.Range(-3.5f, 3.5f);
+        return waitPos.position  + waitPos.right * Random.Range(-2.5f, 2.5f);
     }
 }
