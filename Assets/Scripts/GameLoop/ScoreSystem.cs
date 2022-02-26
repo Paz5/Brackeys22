@@ -10,6 +10,7 @@ public class ScoreSystem : MonoBehaviour
 {
     public MainUiReferences mainUiReferences;
     public GameEvent failEvent;
+    public GameEvent pause;
     private float score;
     private float suspicionMeter;
     private float suspicionCoolDown;
@@ -65,6 +66,7 @@ public class ScoreSystem : MonoBehaviour
     {
         mainUiReferences.endGamePanel.SetActive(true);
         mainUiReferences.endScoreText.text = score+"";
+        pause.Raise();
     }
 
     private void ChangeSusMeter(float value)

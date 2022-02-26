@@ -51,6 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainUiReferences: {fileID: 0}
   failEvent: {fileID: 11400000, guid: fd85ecaeb6d862c4282e30fdbedc00a3, type: 2}
+  pause: {fileID: 11400000, guid: fe7160272d0aff942a3f8ffbfbbdc9c0, type: 2}
   suspicionCoolDownTime: 13
   maxSuspicionMeter: 100
   scoreSound: {fileID: 6037606226790344954}
