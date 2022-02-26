@@ -11,6 +11,8 @@ public class ScoreSystem : MonoBehaviour
     public MainUiReferences mainUiReferences;
     public GameEvent failEvent;
     public GameEvent pause;
+    public GameEvent got10Points;
+    public GameEvent gotPoint;
     private float score;
     private float suspicionMeter;
     private float suspicionCoolDown;
@@ -58,6 +60,8 @@ public class ScoreSystem : MonoBehaviour
     private void OnSuccessDo(float score)
     {
         this.score += score;
+        gotPoint.Raise();
+        if (this.score == 10) got10Points.Raise();
         mainUiReferences.scoreText.text = "" + this.score;
         scoreSound.PlayFeedbacks();
     }
