@@ -6,6 +6,7 @@ public class RepairManager : MonoBehaviourSingleton<RepairManager>
 {
     public DamagedBird birdUnderRepair;
     public Transform headBox;
+    public Transform batteryBox;
     public void SetBird(DamagedBird db)
     {
         if (db == birdUnderRepair) return;

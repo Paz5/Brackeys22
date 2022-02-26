@@ -20,19 +20,23 @@ public class DamagedBird : MonoBehaviour
     {
         if (partTypeEnum == PartTypeEnum.BATTERY)
         {
+            if (!battery.needRepair) return;
             battery.needRepair = false;
             battery.repairedHighlightEffect.outlineColor = unDamaged;
-            battery.DamagedView(false);
+            
+            BatteryRepairAnimation();
         }
         if (partTypeEnum == PartTypeEnum.CAMERA)
         {
+            if (!camera.needRepair) return;
             camera.needRepair = false;
             camera.repairedHighlightEffect.outlineColor = unDamaged;
-            camera.DamagedView(false);
-            RepairAnimation();
+            
+            HeadRepairAnimation();
         }
         if (partTypeEnum == PartTypeEnum.WINGS)
         {
+            if (!wings.needRepair) return;
             wings.needRepair = false;
             wings.repairedHighlightEffect.outlineColor = unDamaged;
             wings.DamagedView(false);
@@ -97,29 +101,81 @@ public class DamagedBird : MonoBehaviour
         }
     }
 
+    [Header("battery")]
+    public GameObject batteryPrefab;
+    public Transform batteryParent;
+    public Transform batteryBox;
+    public Transform batLocalPosStart;
+    public Transform batLocalPosEnd;
+    public Vector3 batRotate;
+    public GameObject animatedBattery;
+    public float batFirstMovementDuration;
+    public float batSecondMovementDuration;
+
+    private void BatteryRepairAnimation()
+    {
+        Bra1();
+    }
+
+    private void Bra1()
+    {
+        batteryBox = RepairManager.Instance.batteryBox;
+        animatedBattery = Instantiate(batteryPrefab, batteryBox.position, localPosStart.rotation);
+        animatedBattery.transform.SetParent(batteryParent, false);
+        animatedBattery.transform.position = batteryBox.position;
+        animatedBattery.transform.DOLocalMove(batLocalPosStart.localPosition, batFirstMovementDuration).OnComplete(Bra2);
+    }
+
+    private void Bra2()
+    {
+        animatedBattery.transform.DOLocalMove(batLocalPosEnd.localPosition, batSecondMovementDuration);
+        animatedBattery.transform.DOLocalRotate(batRotate, batSecondMovementDuration, RotateMode.LocalAxisAdd).OnComplete(Bra3);
+    }
+
+    private void Bra3()
+    {
+        //klapka zamyka sie
+        BraCompleted();
+    }
+
+    private void BraCompleted()
+    {
+        battery.DamagedView(false);
+    }
+
+    [Header("camera")]
     public GameObject headPrefab;
     public Transform headParent;
     public Transform headBox;
     public Transform localPosStart;
     public Transform localPosEnd;
     public Vector3 headRotate;
-    public GameObject animatedObject;
+    public GameObject animatedCamera;
     public float firstMovementDuration;
     public float secondMovementDuration;
 
-    
-    private void RepairAnimation()
+    private void HeadRepairAnimation()
     {
-        headBox = RepairManager.Instance.headBox;
-        animatedObject = Instantiate(headPrefab, headBox.position, localPosStart.rotation);
-        animatedObject.transform.SetParent(headParent,false);
-        animatedObject.transform.position = headBox.position;
-        animatedObject.transform.DOLocalMove(localPosStart.localPosition,firstMovementDuration).OnComplete(LastPartOfAnim);
+        Hra1();
     }
 
-    private void LastPartOfAnim()
+    private void Hra1()
     {
-        animatedObject.transform.DOLocalMove(localPosEnd.localPosition, secondMovementDuration);
-        animatedObject.transform.DOLocalRotate(headRotate, secondMovementDuration,RotateMode.LocalAxisAdd);
+        headBox = RepairManager.Instance.headBox;
+        animatedCamera = Instantiate(headPrefab, headBox.position, localPosStart.rotation);
+        animatedCamera.transform.SetParent(headParent,false);
+        animatedCamera.transform.position = headBox.position;
+        animatedCamera.transform.DOLocalMove(localPosStart.localPosition,firstMovementDuration).OnComplete(Hra2);
+    }
+
+    private void Hra2()
+    {
+        animatedCamera.transform.DOLocalMove(localPosEnd.localPosition, secondMovementDuration);
+        animatedCamera.transform.DOLocalRotate(headRotate, secondMovementDuration,RotateMode.LocalAxisAdd).OnComplete(HraCompleted);
+    }
+
+    private void HraCompleted()
+    {
+        camera.DamagedView(false);
     }
 }
