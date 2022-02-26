@@ -9,7 +9,8 @@ public class MissionManager : MonoBehaviour{
     [SerializeField] private RectTransform canvas;
     [SerializeField] private MissionDisplay display;
     [SerializeField] private Transform missionObjectContainer;
-    private MapMission missionObject;
+
+    private MapMission activeMissionObject;
     private Mission activeMission;
     
     [SerializeField] private GameEvent failEvent;
@@ -41,11 +42,11 @@ public class MissionManager : MonoBehaviour{
         obj.SetParent(missionObjectContainer,false);
         obj.anchoredPosition = pos;
         Mission mission = missions[Random.Range(0, missions.Count)];
-        missionObject = obj.GetComponent<MapMission>();
-        missionObject.SetParams(this,mission);
+        obj.GetComponent<MapMission>().SetParams(this,mission);;
     }
 
-    public void Show(Mission mission){
+    public void Show(Mission mission,MapMission missionObject){
+        activeMissionObject = missionObject;
         activeMission = mission;
         display.Show(mission);
     }
@@ -77,7 +78,7 @@ public class MissionManager : MonoBehaviour{
     private void MissionDone(){
         activeMission = null;
         display.Hide();
-        if(missionObject!=null)
-            Destroy(missionObject.gameObject);
+        if(activeMissionObject!=null)
+            Destroy(activeMissionObject.gameObject);
     }
 }

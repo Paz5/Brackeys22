@@ -10,15 +10,12 @@ public class MissionDisplay : MonoBehaviour{
     [SerializeField] private UnityEvent missionShow;
     [SerializeField] private TextMeshProUGUI text;
 
-    private Mission activeMission;
-    
     public void Hide(){
         missionHide.Invoke();
     }
 
     public void Show(Mission mission){
-        activeMission = mission;
-        text.text = activeMission.MissionTitle;
+        text.text = mission.MissionTitle;
         missionShow.Invoke();
     }
 }

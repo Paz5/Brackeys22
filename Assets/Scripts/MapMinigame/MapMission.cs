@@ -23,7 +23,7 @@ public class MapMission : MonoBehaviour
     private float t = 0;
 
     public void ShowMission(){
-        manager.Show(mission);
+        manager.Show(mission,this);
     }
 
     private void FixedUpdate(){
