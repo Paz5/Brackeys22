@@ -4597,10 +4597,26 @@ PrefabInstance:
       propertyPath: _previouslyRegisteredEvent
       value: 
       objectReference: {fileID: 11400000, guid: 41a63aa0672477a4fa1e11e18bdb292e, type: 2}
+    - target: {fileID: 2039027256831138644, guid: 37619f6c98180df4db8702f3729394ca, type: 3}
+      propertyPath: SfxAudioMixerGroup
+      value: 
+      objectReference: {fileID: -3783893103257190392, guid: 7e984f512e89b60468e829489e8883e3, type: 2}
     - target: {fileID: 2039027256859406767, guid: 37619f6c98180df4db8702f3729394ca, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: d744d6dad2d7444408d7c3b0b72f630a, type: 3}
+    - target: {fileID: 2039027257072243197, guid: 37619f6c98180df4db8702f3729394ca, type: 3}
+      propertyPath: SfxAudioMixerGroup
+      value: 
+      objectReference: {fileID: -3783893103257190392, guid: 7e984f512e89b60468e829489e8883e3, type: 2}
+    - target: {fileID: 2039027257187978012, guid: 37619f6c98180df4db8702f3729394ca, type: 3}
+      propertyPath: SfxAudioMixerGroup
+      value: 
+      objectReference: {fileID: -3783893103257190392, guid: 7e984f512e89b60468e829489e8883e3, type: 2}
+    - target: {fileID: 2039027257474532793, guid: 37619f6c98180df4db8702f3729394ca, type: 3}
+      propertyPath: SfxAudioMixerGroup
+      value: 
+      objectReference: {fileID: -3165942800488051908, guid: 7e984f512e89b60468e829489e8883e3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37619f6c98180df4db8702f3729394ca, type: 3}
 --- !u!114 &6868154562579126492 stripped
