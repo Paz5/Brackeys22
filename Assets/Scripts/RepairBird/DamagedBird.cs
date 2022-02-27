@@ -175,6 +175,7 @@ public class DamagedBird : MonoBehaviour
 
     private void HraCompleted()
     {
+        animatedCamera.SetActive(false);
         camera.DamagedView(false);
     }
 }

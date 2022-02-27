@@ -3,7 +3,37 @@ guid: a81d694dff40c3d4385a8c5d8f2b2d52
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: cb43f07c3cc034d4ebfd0c6ca4a3f77f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: P
+    second: {fileID: 2100000, guid: cedcc0072603c0d48a315bb274a237a5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: beak
+    second: {fileID: 2100000, guid: 13687ee57e58c9b48b97fd0146645eb1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: legs
+    second: {fileID: 2100000, guid: ebce4b5c524781b46b2776fae9775c31, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pigeon body
+    second: {fileID: 2100000, guid: dd1a21cbbef885d479ea10484da96884, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: screw
+    second: {fileID: 2100000, guid: e2f3e76c7c92890418ad38f8b4f69237, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
