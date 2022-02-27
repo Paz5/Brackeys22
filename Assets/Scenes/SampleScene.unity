@@ -4233,17 +4233,17 @@ MonoBehaviour:
   startSpawnDelayCage: 6
   endSpawnDelayCage: 3
   startTimeWindowCage: 20
-  endTimeWindowCage: 25
+  endTimeWindowCage: 20
   timeToMaxDifficultyCage: 240
   timeToStartDifficultyIncreaseCage: 15
   startSpawnDelayRepair: 6
-  endSpawnDelayRepair: 4
+  endSpawnDelayRepair: 3
   startTimeWindowRepair: 20
   endTimeWindowRepair: 16
   timeToMaxDifficultyRepair: 300
   timeToStartDifficultyIncreaseRepair: 30
   startSpawnDelayMap: 11
-  endSpawnDelayMap: 6
+  endSpawnDelayMap: 3
   startTimeWindowMap: 20
   endTimeWindowMap: 25
   timeToMaxDifficultyMap: 250
