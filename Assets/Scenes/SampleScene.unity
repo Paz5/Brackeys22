@@ -4230,11 +4230,11 @@ MonoBehaviour:
   cageTimeWindow: {fileID: 11400000, guid: f582d5460171e96479c3f9e7aae6122b, type: 2}
   repairTimeWindow: {fileID: 11400000, guid: 36622b35e7d866549951b5ef2c580ffa, type: 2}
   mapTimeWindow: {fileID: 11400000, guid: d199e9aab46e558409f37f258a91be1c, type: 2}
-  startSpawnDelayCage: 6
+  startSpawnDelayCage: 5
   endSpawnDelayCage: 3
   startTimeWindowCage: 20
   endTimeWindowCage: 20
-  timeToMaxDifficultyCage: 240
+  timeToMaxDifficultyCage: 220
   timeToStartDifficultyIncreaseCage: 15
   startSpawnDelayRepair: 6
   endSpawnDelayRepair: 3
