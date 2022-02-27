@@ -111,6 +111,7 @@ public class DamagedBird : MonoBehaviour
     public GameObject animatedBattery;
     public float batFirstMovementDuration;
     public float batSecondMovementDuration;
+    public GameObject batteryFlap;
 
     private void BatteryRepairAnimation()
     {
@@ -128,14 +129,12 @@ public class DamagedBird : MonoBehaviour
 
     private void Bra2()
     {
-        animatedBattery.transform.DOLocalMove(batLocalPosEnd.localPosition, batSecondMovementDuration);
-        animatedBattery.transform.DOLocalRotate(batRotate, batSecondMovementDuration, RotateMode.LocalAxisAdd).OnComplete(Bra3);
+        animatedBattery.transform.DOLocalMove(batLocalPosEnd.localPosition, batSecondMovementDuration).OnComplete(Bra3);
     }
 
     private void Bra3()
     {
-        //klapka zamyka sie
-        BraCompleted();
+        batteryFlap.transform.DOLocalRotate(batRotate, batSecondMovementDuration, RotateMode.LocalAxisAdd).OnComplete(BraCompleted);
     }
 
     private void BraCompleted()
